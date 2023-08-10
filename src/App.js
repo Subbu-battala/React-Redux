@@ -6,11 +6,13 @@ import Home from "./component/Home";
 import Create from "./component/Create";
 import Update from "./component/Update";
 import Pnf from "./component/Pnf";
+import { ToastContainer } from "react-toastify";
 
 function App(){
   return(
     <Router>
       <Menu/>
+        <ToastContainer autoClose={4000} position="top-right"  />
        <Routes>
        <Route path={`/`} element={<Home/>} ></Route>
        <Route path={`/create`} element={<Create/>} ></Route>

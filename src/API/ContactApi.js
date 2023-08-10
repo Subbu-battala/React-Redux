@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const axiosIns = axios.create({
-    baseURL: "https://localhost:5000"
+    baseURL: "http://localhost:5000"
 })
 
 const ContactApi = {
@@ -22,6 +22,19 @@ const ContactApi = {
             method: "POST",
             url: `/contacts`,
             data: contact
+        })
+    },
+    update: (id, contact) => {
+        return axiosIns.request({
+            method: "PATCH",
+            url: `/contacts/${id}`,
+            data: contact
+        })
+    },
+    delete: (id) => {
+        return axiosIns.request({
+            method: "DELETE",
+            url: `/contacts/${id}`
         })
     }
 }

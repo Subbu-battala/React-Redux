@@ -1,9 +1,12 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import ContactApi from "../API/ContactApi";
 
+// createAsyncThunk(action const, action method)
 //create action
 export const createContact = createAsyncThunk("contact/create", async (contact) => {
     console.log("new contact=", contact);
+    const res = await ContactApi.create(contact)
+    return res.data
 })
 
 //read all action
@@ -12,7 +15,7 @@ export const retriveContacts = createAsyncThunk("contact/retrive", async () => {
 })
 
 //read single contact
-export const retriveSingle = createAsyncThunk("contsct/retrive/single", async ({id}) =>{
+export const retriveSingle = createAsyncThunk("contact/retrive/single", async ({id}) =>{
     console.log("contact id = ", id)
 })
 
