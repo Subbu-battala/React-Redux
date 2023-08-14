@@ -18,6 +18,8 @@ export const retriveContacts = createAsyncThunk("contact/retrive", async (contac
 //read single contact
 export const retriveSingle = createAsyncThunk("contact/retrive/single", async ({id}) =>{
     console.log("contact id = ", id)
+    const res = await ContactApi.getSingle(id)
+    return res.data
    
 })
 

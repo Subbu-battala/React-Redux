@@ -16,7 +16,9 @@ const ContactSlice = createSlice({
         .addCase(retriveContacts.fulfilled, (state, action) => {
             return [...action.payload]
         })
-        .addCase(retriveSingle.fulfilled, (state, action) => {})
+        .addCase(retriveSingle.fulfilled, (state, action) => {
+            return action.payload
+        })
         .addCase(updateContact.fulfilled, (state, action) => {
             const index = state.findIndex(item => item.id === action.payload.id)
             state[index] = {
